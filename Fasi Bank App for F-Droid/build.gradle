@@ -1,0 +1,28 @@
+// build.gradle (Root Project Level)
+
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.9.0' // Use the version your project needs
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        // This is the CRITICAL line that enables the 'android' method
+        classpath 'com.android.tools.build:gradle:8.2.0' // Use a recent version
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // Add other necessary top-level dependencies here
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+tasks.register('clean', Delete) {
+    delete rootProject.buildDir
+}
